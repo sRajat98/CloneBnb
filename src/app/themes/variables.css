@@ -1,0 +1,15 @@
+:root {
+  /*Color Variables*/
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-gray: #505050;
+  --color-search-background: #ed255e;
+  /*padding and margin variables*/
+  --pd-l: 8rem;
+  --pd-m: 5rem;
+  --pd-s: 2.5rem;
+
+  /*font sizes*/
+  --fs-200: 1.6rem;
+  --fs-100: 1.4rem;
+}
