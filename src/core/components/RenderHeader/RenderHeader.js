@@ -7,15 +7,18 @@ import * as Styled from "./RenderHeader.styled";
 
 const RenderHeader = (props) => {
   return (
-    <Styled.NavBar>
-      <Styled.Header>
-        <SvgContainer height="3.2rem">
-          <Applogo />
-        </SvgContainer>
-      </Styled.Header>
-      {(props.isCompactSearchVisible && (
-        <CompactSearch setParentState={props.setParentState} />
-      )) || <ExpandedSearch />}
+    <Styled.NavBar ref={props.headerRef}>
+      <Styled.NavBarContainer>
+        <Styled.Header>
+          <SvgContainer height="3.2rem">
+            <Applogo />
+          </SvgContainer>
+        </Styled.Header>
+
+        {(props.isCompactSearchVisible && (
+          <CompactSearch setParentState={props.setParentState} />
+        )) || <ExpandedSearch datePickerRef={props.datePickerRef} />}
+      </Styled.NavBarContainer>
     </Styled.NavBar>
   );
 };
