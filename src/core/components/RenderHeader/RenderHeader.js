@@ -29,6 +29,8 @@ const RenderHeader = (props) => {
             <CompactSearch
               deviceInfo={props.deviceInfo}
               setParentState={props.setParentState}
+              setIsMobileSearchVisible={props.setIsMobileSearchVisible}
+              isMobileSearchVisible={props.isMobileSearchVisible}
             />
           ) : (
             <AnimatePresence>

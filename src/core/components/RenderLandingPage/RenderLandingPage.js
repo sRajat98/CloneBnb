@@ -1,5 +1,4 @@
 import React from "react";
-import { breakpoints } from "../../../utils/breakpoints";
 import LandingPageImagex640 from "../../../app/images/landingPage/travel_small.jpg";
 import LandingPageImagex1920 from "../../../app/images/landingPage/travel_medium.jpg";
 import LandingPageImagex2400 from "../../../app/images/landingPage/travel_large.jpg";

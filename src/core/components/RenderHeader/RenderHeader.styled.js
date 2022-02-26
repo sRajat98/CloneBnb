@@ -15,7 +15,8 @@ export const NavBarContainer = styled.div`
     (props.isCompactSearchVisible && "var(--color-white)") || "transparent"};
   padding: 1.5rem 1.6rem;
   transition: 250ms ease-in-out;
-  background-color: currentColor;
+  background-color: ${(props) =>
+    (props.isCompactSearchVisible && "var(--color-white)") || "transparent"};
   @media (min-width: 850px) {
     color: ${(props) =>
       (props.isCompactSearchVisible && "var(--color-white)") ||

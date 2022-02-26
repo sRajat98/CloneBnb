@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import useScrollEvent from "../../../utils/hooks/useScrollEvent";
+import useDisabledBodyScroll from "../../../utils/hooks/useDisabledBodyScroll";
 import RenderHeader from "../../components/RenderHeader/RenderHeader";
 
 const Header = (props) => {
@@ -12,6 +13,7 @@ const Header = (props) => {
   });
   const setState = (value) => updateState({ ...state, ...value });
 
+  useDisabledBodyScroll(state.isMobileSearchVisible);
   const handleScroll = (event) => {
     if (window.scrollY === 0)
       return setState({ isCompactSearchVisible: false });
@@ -29,6 +31,15 @@ const Header = (props) => {
       );
     }
   }, [headerRef.current, datePickerRef.current]);
+
+  useEffect(() => {
+    if (props.deviceInfo.width > 850) {
+      setState({
+        isCompactSearchVisible: false,
+        isMobileSearchVisible: false,
+      });
+    }
+  }, [props.deviceInfo.width]);
 
   return (
     <RenderHeader
