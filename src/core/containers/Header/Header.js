@@ -17,11 +17,8 @@ const Header = (props) => {
   useScrollEvent(handleScroll);
 
   useEffect(() => {
-    // if (state.isCompactSearchVisible)
-    //   return props.updateHeaderHeight(headerRef.current.offsetHeight);
-    return props.updateHeaderHeight(
-      // headerRef.current.offsetHeight + datePickerRef.current.offsetHeight
-      176
+    props.updateHeaderHeight(
+      headerRef.current.offsetHeight + datePickerRef.current.offsetHeight
     );
   }, []);
 
