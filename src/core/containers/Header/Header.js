@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import useScrollEvent from "../../../utils/hooks/useScrollEvent";
 import RenderHeader from "../../components/RenderHeader/RenderHeader";
 
 const Header = (props) => {
@@ -8,13 +9,21 @@ const Header = (props) => {
   const [state, updateState] = useState({ isCompactSearchVisible: false });
   const setState = (value) => updateState({ ...state, ...value });
 
+  const handleScroll = (event) => {
+    if (window.scrollY === 0)
+      return setState({ isCompactSearchVisible: false });
+    return setState({ isCompactSearchVisible: true });
+  };
+  useScrollEvent(handleScroll);
+
   useEffect(() => {
-    if (state.isCompactSearchVisible)
-      return props.updateHeaderHeight(headerRef.current.offsetHeight);
+    // if (state.isCompactSearchVisible)
+    //   return props.updateHeaderHeight(headerRef.current.offsetHeight);
     return props.updateHeaderHeight(
-      headerRef.current.offsetHeight + datePickerRef.current.offsetHeight
+      // headerRef.current.offsetHeight + datePickerRef.current.offsetHeight
+      176
     );
-  }, [state.isCompactSearchVisible]);
+  }, []);
 
   return (
     <RenderHeader

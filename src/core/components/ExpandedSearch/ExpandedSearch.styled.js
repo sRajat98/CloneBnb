@@ -28,7 +28,7 @@ export const DatePickerContainer = styled.div`
   padding-bottom: 1rem;
 `;
 
-export const DatePicker = styled.div`
+export const DatePicker = styled(motion.div)`
   display: flex;
   width: fit-content;
   margin: 0 auto;

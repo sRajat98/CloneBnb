@@ -1,4 +1,5 @@
 import React from "react";
+import { AnimateSharedLayout, AnimatePresence } from "framer-motion";
 import Applogo from "../../../app/images/icons/Applogo";
 import SvgContainer from "../../../app/themes/GlobalElements/SvgContainer.styled";
 import CompactSearch from "../CompactSearch/CompactSearch";
@@ -8,16 +9,27 @@ import * as Styled from "./RenderHeader.styled";
 const RenderHeader = (props) => {
   return (
     <Styled.NavBar ref={props.headerRef}>
-      <Styled.NavBarContainer>
-        <Styled.Header>
+      <Styled.NavBarContainer
+        isCompactSearchVisible={props.isCompactSearchVisible}
+      >
+        <Styled.Header isCompactSearchVisible={props.isCompactSearchVisible}>
           <SvgContainer height="3.2rem">
             <Applogo />
           </SvgContainer>
         </Styled.Header>
-
-        {(props.isCompactSearchVisible && (
-          <CompactSearch setParentState={props.setParentState} />
-        )) || <ExpandedSearch datePickerRef={props.datePickerRef} />}
+        <AnimateSharedLayout type="crossfade">
+          {props.isCompactSearchVisible ? (
+            <CompactSearch setParentState={props.setParentState} />
+          ) : (
+            <AnimatePresence>
+              <ExpandedSearch
+                datePickerRef={props.datePickerRef}
+                setParentState={props.setParentState}
+                isCompactSearchVisible={props.isCompactSearchVisible}
+              />
+            </AnimatePresence>
+          )}
+        </AnimateSharedLayout>
       </Styled.NavBarContainer>
     </Styled.NavBar>
   );
