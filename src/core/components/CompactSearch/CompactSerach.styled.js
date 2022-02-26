@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { motion } from "framer-motion";
 
 export const Container = styled(motion.div)`
@@ -7,8 +7,9 @@ export const Container = styled(motion.div)`
   width: 30rem;
   background-color: var(--color-white);
   margin: 0 auto;
-  padding: 0.5rem 1rem;
+  padding: 1rem;
   border-radius: 10rem;
+  box-shadow: 0 2px 4px rgba(var(--color-rgb-black), 0.4);
 `;
 
 export const TextContainer = styled.div`

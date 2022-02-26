@@ -4,6 +4,10 @@
   --color-white: #ffffff;
   --color-gray: #505050;
   --color-search-background: #ed255e;
+
+  /*RGB Color Variables*/
+  --color-rgb-black: 0, 0, 0;
+
   /*padding and margin variables*/
   --pd-l: 8rem;
   --pd-m: 5rem;

@@ -5,14 +5,19 @@ import * as Styled from "./ExpandedSearch.styled";
 
 const ExpandedSearch = (props) => {
   return (
-    <Styled.Container layoutId="expandable-search">
+    <Styled.Container exit={{ opacity: 0, transition: { duration: 0.15 } }}>
       <Styled.TabsContianer>
         <Styled.IndividualTab>Places to stay</Styled.IndividualTab>
         <Styled.IndividualTab>Experiences</Styled.IndividualTab>
         <Styled.IndividualTab>Online Experiences</Styled.IndividualTab>
       </Styled.TabsContianer>
       <Styled.DatePickerContainer ref={props.datePickerRef}>
-        <Styled.DatePicker>
+        <Styled.DatePicker
+          layoutId="expandable-search"
+          transition={{
+            duration: 0.2,
+          }}
+        >
           <Styled.IndividualDatePickerTab>
             <Styled.Label>Location</Styled.Label>
             <Styled.Value>Where are you going?</Styled.Value>

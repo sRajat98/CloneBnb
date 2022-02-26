@@ -6,10 +6,15 @@ import * as Styled from "./CompactSerach.styled";
 const CompactSearch = (props) => {
   return (
     <Styled.Container
+      layout
       layoutId="expandable-search"
       onClick={() => {
         props.setParentState({ isCompactSearchVisible: false });
       }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0, transition: { duration: 0.15 } }}
+      transition={{ duration: 0.05 }}
     >
       <Styled.TextContainer>Start your search</Styled.TextContainer>
       <Styled.SearchContainer>
