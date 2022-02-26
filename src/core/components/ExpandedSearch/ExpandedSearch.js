@@ -3,7 +3,7 @@ import Search from "../../../app/images/icons/Search";
 import SvgContainer from "../../../app/themes/GlobalElements/SvgContainer.styled";
 import * as Styled from "./ExpandedSearch.styled";
 
-const ExpandedSearch = () => {
+const ExpandedSearch = (props) => {
   return (
     <Styled.Container layoutId="expandable-search">
       <Styled.TabsContianer>
@@ -11,7 +11,7 @@ const ExpandedSearch = () => {
         <Styled.IndividualTab>Experiences</Styled.IndividualTab>
         <Styled.IndividualTab>Online Experiences</Styled.IndividualTab>
       </Styled.TabsContianer>
-      <Styled.DatePickerContainer>
+      <Styled.DatePickerContainer ref={props.datePickerRef}>
         <Styled.DatePicker>
           <Styled.IndividualDatePickerTab>
             <Styled.Label>Location</Styled.Label>
