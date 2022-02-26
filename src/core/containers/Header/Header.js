@@ -6,7 +6,10 @@ const Header = (props) => {
   const headerRef = useRef(null);
   const datePickerRef = useRef(null);
 
-  const [state, updateState] = useState({ isCompactSearchVisible: false });
+  const [state, updateState] = useState({
+    isCompactSearchVisible: false,
+    isMobileSearchVisible: false,
+  });
   const setState = (value) => updateState({ ...state, ...value });
 
   const handleScroll = (event) => {
@@ -16,17 +19,25 @@ const Header = (props) => {
   };
   useScrollEvent(handleScroll);
 
+  const setIsMobileSearchVisible = (isMobileSearchVisible) =>
+    setState({ isMobileSearchVisible });
+
   useEffect(() => {
-    props.updateHeaderHeight(
-      headerRef.current.offsetHeight + datePickerRef.current.offsetHeight
-    );
-  }, []);
+    if (headerRef.current && datePickerRef.current) {
+      props.updateHeaderHeight(
+        headerRef.current.offsetHeight + datePickerRef.current.offsetHeight
+      );
+    }
+  }, [headerRef.current, datePickerRef.current]);
 
   return (
     <RenderHeader
       headerRef={headerRef}
       datePickerRef={datePickerRef}
       isCompactSearchVisible={state.isCompactSearchVisible}
+      setIsMobileSearchVisible={setIsMobileSearchVisible}
+      isMobileSearchVisible={state.isMobileSearchVisible}
+      deviceInfo={props.deviceInfo}
       setParentState={setState}
     />
   );
