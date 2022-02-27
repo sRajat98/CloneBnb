@@ -1,6 +1,9 @@
 import React from "react";
 import { AnimateSharedLayout, AnimatePresence } from "framer-motion";
 import { breakpoints } from "../../../utils/breakpoints";
+import Web from "../../../app/images/icons/Web";
+import Profile from "../../../app/images/icons/Profile";
+import Hamburger from "../../../app/images/icons/Hamburger";
 import Applogo from "../../../app/images/icons/Applogo";
 import AppLogoWoutText from "../../../app/images/icons/AppLogoWoutText";
 import SvgContainer from "../../../app/themes/GlobalElements/SvgContainer.styled";
@@ -16,9 +19,11 @@ const RenderHeader = (props) => {
       >
         {props.deviceInfo.width >= 850 && (
           <Styled.Header isCompactSearchVisible={props.isCompactSearchVisible}>
-            <SvgContainer height="3.2rem">
+            <SvgContainer styles={Styled.svgStyles}>
               {(props.deviceInfo.width >= breakpoints.laptop && (
-                <Applogo />
+                <Applogo
+                  isCompactSearchVisible={props.isCompactSearchVisible}
+                />
               )) || <AppLogoWoutText />}
             </SvgContainer>
           </Styled.Header>
@@ -28,20 +33,41 @@ const RenderHeader = (props) => {
           {props.deviceInfo.width < 850 || props.isCompactSearchVisible ? (
             <CompactSearch
               deviceInfo={props.deviceInfo}
-              setParentState={props.setParentState}
               setIsMobileSearchVisible={props.setIsMobileSearchVisible}
               isMobileSearchVisible={props.isMobileSearchVisible}
+              setIsCompactSearchVisible={props.setIsCompactSearchVisible}
             />
           ) : (
             <AnimatePresence>
               <ExpandedSearch
                 datePickerRef={props.datePickerRef}
-                setParentState={props.setParentState}
                 isCompactSearchVisible={props.isCompactSearchVisible}
               />
             </AnimatePresence>
           )}
         </AnimateSharedLayout>
+        <Styled.NavBarRightContainer
+          isCompactSearchVisible={props.isCompactSearchVisible}
+        >
+          <Styled.BecomeAHostButton
+            isCompactSearchVisible={props.isCompactSearchVisible}
+          >
+            Become a Host
+          </Styled.BecomeAHostButton>
+          <Styled.WebIconContainer
+            isCompactSearchVisible={props.isCompactSearchVisible}
+          >
+            <Web />
+          </Styled.WebIconContainer>
+          <Styled.ProfileButton>
+            <SvgContainer styles={Styled.profileIconStyles}>
+              <Hamburger />
+            </SvgContainer>
+            <SvgContainer styles={Styled.profileIconStyles}>
+              <Profile />
+            </SvgContainer>
+          </Styled.ProfileButton>
+        </Styled.NavBarRightContainer>
       </Styled.NavBarContainer>
     </Styled.NavBar>
   );

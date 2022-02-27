@@ -24,6 +24,9 @@ const Header = (props) => {
   const setIsMobileSearchVisible = (isMobileSearchVisible) =>
     setState({ isMobileSearchVisible });
 
+  const setIsCompactSearchVisible = (isCompactSearchVisible) =>
+    setState({ isCompactSearchVisible });
+
   useEffect(() => {
     if (headerRef.current && datePickerRef.current) {
       props.updateHeaderHeight(
@@ -46,10 +49,10 @@ const Header = (props) => {
       headerRef={headerRef}
       datePickerRef={datePickerRef}
       isCompactSearchVisible={state.isCompactSearchVisible}
-      setIsMobileSearchVisible={setIsMobileSearchVisible}
       isMobileSearchVisible={state.isMobileSearchVisible}
+      setIsMobileSearchVisible={setIsMobileSearchVisible}
+      setIsCompactSearchVisible={setIsCompactSearchVisible}
       deviceInfo={props.deviceInfo}
-      setParentState={setState}
     />
   );
 };

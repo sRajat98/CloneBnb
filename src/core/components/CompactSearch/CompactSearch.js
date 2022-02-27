@@ -5,14 +5,17 @@ import SvgContainer from "../../../app/themes/GlobalElements/SvgContainer.styled
 import * as Styled from "./CompactSerach.styled";
 
 const CompactSearch = (props) => {
+  const handleSearchClick = () => {
+    if (props.deviceInfo.width < 850)
+      return props.setIsMobileSearchVisible(true);
+    return props.setIsCompactSearchVisible(false);
+  };
   return (
     <>
       <Styled.Container
         layout
         layoutId="expandable-search"
-        onClick={() => {
-          props.setIsMobileSearchVisible(true);
-        }}
+        onClick={handleSearchClick}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0, transition: { duration: 0.15 } }}
