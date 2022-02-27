@@ -6,6 +6,7 @@ export const NavBar = styled.nav`
   left: 0;
   width: 100vw;
   z-index: 2;
+  box-shadow: 0px 2px 6px rgba(var(--color-rgb-black), 0.1);
 `;
 
 export const NavBarContainer = styled.div`

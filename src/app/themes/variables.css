@@ -5,7 +5,8 @@
   --color-gray: #505050;
   --color-search-background: #ed255e;
   --color-gradient-purple: #530041;
-
+  --color-light-black: #222222;
+  --color-inspirations-card: #de3151;
   /*RGB Color Variables*/
   --color-rgb-white: 255, 255, 255;
   --color-rgb-black: 0, 0, 0;
@@ -19,6 +20,7 @@
   /*font sizes*/
   --fs-500: 3.75rem;
   --fs-300: 2.4rem;
+  --fs-250: 2rem;
   --fs-200: 1.6rem;
   --fs-100: 1.4rem;
 }

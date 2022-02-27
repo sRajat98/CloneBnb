@@ -11,7 +11,7 @@ export const Container = styled(motion.div)`
   padding: 1rem;
   border-radius: 10rem;
   box-shadow: 0 2px 4px rgba(var(--color-rgb-black), 0.4);
-
+  cursor: pointer;
   @media (min-width: 850px) {
     width: 30rem;
   }

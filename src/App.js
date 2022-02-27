@@ -3,6 +3,7 @@ import GlobalStyles from "./app/themes/GlobalStyles";
 import Header from "./core/containers/Header/Header";
 import useWindowSize from "./utils/hooks/useWindowSize";
 import LandingPage from "./core/containers/LandingPage/LandingPage";
+import NextTripInspiration from "./core/components/NextTripInspiration/NextTripInspiration";
 
 const App = () => {
   const { width, height } = useWindowSize();
@@ -29,6 +30,7 @@ const App = () => {
         deviceInfo={state.deviceInfo}
         headerHeight={state.headerHeight}
       />
+      <NextTripInspiration />
     </div>
   );
 };
