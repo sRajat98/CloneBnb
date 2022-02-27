@@ -12,7 +12,6 @@ html {
     }
 
 body {
-    /* font-family: 'Merriweather', serif; */
     font: 400 13.3333px Arial;
     font-style: normal;
     font-variant-ligatures: normal;

@@ -31,6 +31,7 @@ export const TextContainer = styled.div`
 `;
 
 export const Heading = styled.h3`
+  text-align: center;
   font-size: var(--fs-500);
   color: var(--color-white);
   margin-bottom: 2rem;
