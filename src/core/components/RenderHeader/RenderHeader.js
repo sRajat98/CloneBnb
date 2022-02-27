@@ -10,6 +10,7 @@ import SvgContainer from "../../../app/themes/GlobalElements/SvgContainer.styled
 import CompactSearch from "../CompactSearch/CompactSearch";
 import ExpandedSearch from "../ExpandedSearch/ExpandedSearch";
 import * as Styled from "./RenderHeader.styled";
+import ProfilePopup from "../ProfilePopup/ProfilePopup";
 
 const RenderHeader = (props) => {
   return (
@@ -60,13 +61,19 @@ const RenderHeader = (props) => {
           >
             <Web />
           </Styled.WebIconContainer>
-          <Styled.ProfileButton>
+          <Styled.ProfileButton
+            onClick={() =>
+              props.setIsProfilePopupVisible(!props.isProfilePopupVisible)
+            }
+          >
             <SvgContainer styles={Styled.profileIconStyles}>
               <Hamburger />
             </SvgContainer>
             <SvgContainer styles={Styled.profileIconStyles}>
               <Profile />
             </SvgContainer>
+
+            {props.isProfilePopupVisible && <ProfilePopup />}
           </Styled.ProfileButton>
         </Styled.NavBarRightContainer>
       </Styled.NavBarContainer>

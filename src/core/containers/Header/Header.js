@@ -10,6 +10,7 @@ const Header = (props) => {
   const [state, updateState] = useState({
     isCompactSearchVisible: false,
     isMobileSearchVisible: false,
+    isProfilePopupVisible: false,
   });
   const setState = (value) => updateState({ ...state, ...value });
 
@@ -26,6 +27,9 @@ const Header = (props) => {
 
   const setIsCompactSearchVisible = (isCompactSearchVisible) =>
     setState({ isCompactSearchVisible });
+
+  const setIsProfilePopupVisible = (isProfilePopupVisible) =>
+    setState({ isProfilePopupVisible });
 
   useEffect(() => {
     if (headerRef.current && datePickerRef.current) {
@@ -50,8 +54,10 @@ const Header = (props) => {
       datePickerRef={datePickerRef}
       isCompactSearchVisible={state.isCompactSearchVisible}
       isMobileSearchVisible={state.isMobileSearchVisible}
+      isProfilePopupVisible={state.isProfilePopupVisible}
       setIsMobileSearchVisible={setIsMobileSearchVisible}
       setIsCompactSearchVisible={setIsCompactSearchVisible}
+      setIsProfilePopupVisible={setIsProfilePopupVisible}
       deviceInfo={props.deviceInfo}
     />
   );
