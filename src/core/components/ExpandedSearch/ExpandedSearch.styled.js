@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { minMediaQueries } from "../../../utils/breakpoints";
 
 export const Container = styled(motion.div)`
   position: absolute;
@@ -8,6 +9,9 @@ export const Container = styled(motion.div)`
   height: 100%;
   margin: 0 auto;
   background-color: currentColor;
+  @media (max-width: 950px) {
+    top: 100%;
+  }
 `;
 
 export const TabsContianer = styled.div`
@@ -32,16 +36,31 @@ export const DatePicker = styled(motion.div)`
   display: flex;
   width: fit-content;
   margin: 0 auto;
-  overflow: hidden;
   background-color: var(--color-white);
   border-radius: 10rem;
   padding-right: 1rem;
+  @media ${minMediaQueries.tablet} {
+    max-width: 90vw;
+  }
+  @media ${minMediaQueries.laptop} {
+    max-width: 80vw;
+  }
 `;
 
 export const IndividualDatePickerTab = styled.div`
   padding: 1.5rem 0;
-  padding-left: 3.5rem;
-  padding-right: var(--pd-l);
+  padding-left: 3rem;
+  padding-right: var(--pd-m);
+  transition: all 250ms linear;
+  @media ${minMediaQueries.laptop} {
+    padding-left: 2rem;
+    padding-right: var(--pd-l);
+  }
+
+  @media ${minMediaQueries.laptopL} {
+    padding-left: 3.5rem;
+    padding-right: var(--pd-l);
+  } ;
 `;
 
 export const Label = styled.div`
@@ -51,6 +70,9 @@ export const Label = styled.div`
 `;
 
 export const Value = styled.div`
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   color: var(--color-gray);
   font-size: var(--fs-100);
 `;

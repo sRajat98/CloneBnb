@@ -8,13 +8,18 @@ import * as Styled from "./RenderLandingPage.styled";
 const RenderLandingPage = (props) => {
   return (
     <Styled.Contianer headerHeight={props.headerHeight}>
-      <ImageView
-        src={LandingPageImagex640}
-        srcSet={`${LandingPageImagex640} 640w,
+      <Styled.LandingImageContainer>
+        <ImageView
+          src={LandingPageImagex640}
+          srcSet={`${LandingPageImagex640} 640w,
                  ${LandingPageImagex1920} 1200w, 
                 ${LandingPageImagex2400} 2400w`}
-        imageStyles={Styled.imageStyles}
-      />
+          imageStyles={
+            (props.deviceInfo.width > 850 && Styled.imageStyles) ||
+            Styled.imageMobileStyles
+          }
+        />
+      </Styled.LandingImageContainer>
     </Styled.Contianer>
   );
 };
