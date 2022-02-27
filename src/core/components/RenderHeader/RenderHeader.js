@@ -48,6 +48,7 @@ const RenderHeader = (props) => {
         </AnimateSharedLayout>
         <Styled.NavBarRightContainer
           isCompactSearchVisible={props.isCompactSearchVisible}
+          isMobileSearchVisible={props.isMobileSearchVisible}
         >
           <Styled.BecomeAHostButton
             isCompactSearchVisible={props.isCompactSearchVisible}

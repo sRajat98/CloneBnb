@@ -38,7 +38,8 @@ export const Header = styled.h3`
 `;
 
 export const NavBarRightContainer = styled.div`
-  margin-left: auto;
+  margin-left: ${(props) =>
+    (props.isCompactSearchVisible && "unset") || "auto"};
   display: flex;
   gap: 2.5rem;
   align-items: center;
@@ -46,6 +47,10 @@ export const NavBarRightContainer = styled.div`
     (props.isCompactSearchVisible && "var(--color-black)") ||
     "var(--color-white)"};
   z-index: 2;
+
+  @media (max-width: 849px) {
+    display: none;
+  }
 `;
 
 export const svgStyles = { height: "3.2rem" };
