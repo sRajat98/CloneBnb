@@ -48,10 +48,20 @@ export const DatePicker = styled(motion.div)`
 `;
 
 export const IndividualDatePickerTab = styled.div`
+  position: ${(props) => (props.isSelected && "relative") || "unset"};
   padding: 1.5rem 0;
   padding-left: 3rem;
   padding-right: var(--pd-m);
   transition: all 250ms linear;
+  cursor: pointer;
+  box-shadow: ${(props) =>
+    (props.isSelected && "0 4px 6px rgba(var(--color-rgb-black), 0.5)") ||
+    "none"};
+  &:hover {
+    background-color: ${(props) =>
+      (props.isSelected && "transparent") ||
+      "rgba(var(--color-rgb-black), 0.05)"};
+  }
   @media ${minMediaQueries.laptop} {
     padding-left: 2rem;
     padding-right: var(--pd-l);
