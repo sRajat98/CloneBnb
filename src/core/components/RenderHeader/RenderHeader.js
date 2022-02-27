@@ -43,6 +43,10 @@ const RenderHeader = (props) => {
               <ExpandedSearch
                 datePickerRef={props.datePickerRef}
                 isCompactSearchVisible={props.isCompactSearchVisible}
+                expandedSearchSelectedTab={props.expandedSearchSelectedTab}
+                setExpandedSearchSelectedTab={
+                  props.setExpandedSearchSelectedTab
+                }
               />
             </AnimatePresence>
           )}

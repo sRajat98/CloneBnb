@@ -11,6 +11,7 @@ const Header = (props) => {
     isCompactSearchVisible: false,
     isMobileSearchVisible: false,
     isProfilePopupVisible: false,
+    expandedSearchSelectedTab: NaN,
   });
   const setState = (value) => updateState({ ...state, ...value });
 
@@ -30,6 +31,9 @@ const Header = (props) => {
 
   const setIsProfilePopupVisible = (isProfilePopupVisible) =>
     setState({ isProfilePopupVisible });
+
+  const setExpandedSearchSelectedTab = (tabIndex) =>
+    setState({ expandedSearchSelectedTab: tabIndex });
 
   useEffect(() => {
     if (headerRef.current && datePickerRef.current) {
@@ -55,9 +59,11 @@ const Header = (props) => {
       isCompactSearchVisible={state.isCompactSearchVisible}
       isMobileSearchVisible={state.isMobileSearchVisible}
       isProfilePopupVisible={state.isProfilePopupVisible}
+      expandedSearchSelectedTab={state.expandedSearchSelectedTab}
       setIsMobileSearchVisible={setIsMobileSearchVisible}
       setIsCompactSearchVisible={setIsCompactSearchVisible}
       setIsProfilePopupVisible={setIsProfilePopupVisible}
+      setExpandedSearchSelectedTab={setExpandedSearchSelectedTab}
       deviceInfo={props.deviceInfo}
     />
   );
