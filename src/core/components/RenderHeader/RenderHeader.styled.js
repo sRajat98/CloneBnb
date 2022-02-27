@@ -5,6 +5,7 @@ export const NavBar = styled.nav`
   top: 0;
   left: 0;
   width: 100vw;
+  z-index: 2;
 `;
 
 export const NavBarContainer = styled.div`
